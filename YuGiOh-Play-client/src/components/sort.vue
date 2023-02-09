@@ -37,7 +37,7 @@ export default {
       <div class="container d-flex flex-wrap justify-content-evenly">
         <form class="col-lg-auto d-flex flex-row">
           
-          <select name="fname" class="form-select" aria-label="Category">
+          <select v-model="fname" name="fname" class="form-select" aria-label="Category">
             <option value="" selected disabled>-- Card Type --</option>
             <option value="normal">normal</option> 
             <option value="effect">effect</option> 

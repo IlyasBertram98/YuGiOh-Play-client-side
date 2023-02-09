@@ -1,10 +1,14 @@
 <script>
 import card from '../components/card.vue';
 import { mapState, mapActions } from 'pinia';
-import { useCardStore } from '../stores/card'
+import { useCardStore } from '../stores/card';
+import navbar from '../components/navbar.vue';
+import sort from '../components/sort.vue';
 export default {
     components: {
-        card
+        card,
+        navbar,
+        sort
     },
     data() {
         return {
@@ -16,7 +20,7 @@ export default {
 
         onClickHandler(page){
             const response = {
-                page : page ? page - 1 : 0
+                page : page ? page * 7 : 0
             }
             
             this.fetchCard(response)
@@ -41,7 +45,16 @@ export default {
 </script>
 
 <template>
+      <header class="p-3 text-bg-dark">
+        <div class="container">
+          <navbar />
+        </div>
 
+      </header>
+
+    <!-- end of navbar -->
+    <sort />
+    
     <div class="album py-5 bg-light">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
