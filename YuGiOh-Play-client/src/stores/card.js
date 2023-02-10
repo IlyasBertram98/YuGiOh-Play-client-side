@@ -3,7 +3,8 @@ import { defineStore } from 'pinia'
 
 export const useCardStore = defineStore('useCardStore', {
     state: () => ({
-        baseUrl: `http://localhost:3000/`,
+        // baseUrl: `http://localhost:3000/`,
+        baseUrl: `https://yugioh-play-server-production.up.railway.app/`,
         dataCards: [],
         dataRandom: [],
         cardsRarity: [],
