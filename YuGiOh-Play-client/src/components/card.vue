@@ -15,7 +15,9 @@ export default {
                         Card Sets: 
                     </p>
                     <p class="card-text">
-                        {{ dataCards.card_sets[0].set_name }} ({{ dataCards.card_sets[0].set_rarity }}) 
+                        <ul>
+                            <li v-for="(cardSets, index) in dataCards.card_sets" :key="index" :sets="cardSets">{{ cardSets.set_name }} ({{ cardSets.set_rarity }})</li>
+                        </ul>
                     </p>
                     
                     <div class="d-flex justify-content-between align-items-center">
