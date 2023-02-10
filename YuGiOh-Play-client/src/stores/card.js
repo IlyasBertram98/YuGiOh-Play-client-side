@@ -5,6 +5,8 @@ export const useCardStore = defineStore('useCardStore', {
     state: () => ({
         baseUrl: `http://localhost:3000/`,
         dataCards: [],
+        dataRandom: [],
+        cardsRarity: [],
         packs: [{
             set_name: 'Breakers of Shadow',
             set_code: 'BOSH',
@@ -49,6 +51,24 @@ export const useCardStore = defineStore('useCardStore', {
                 })
                 console.log(data.data.length);
                 this.dataCards = data.data
+            } catch (error) {
+                console.log(error);
+            }
+        },
+
+        async fetchRandomCard(response) {
+            try {
+                const { data } = await axios({
+                    url: this.baseUrl + 'cardsRandom',
+                    method: 'get',
+                    params: {
+                        sets: response.sets ? response.sets : ""
+                    }
+                })
+
+                this.dataRandom = data;
+
+                this.router.push('/result')
             } catch (error) {
                 console.log(error);
             }

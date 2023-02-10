@@ -1,4 +1,5 @@
 <script>
+import { RouterLink } from 'vue-router';
 import pack from '../components/pack.vue'
 import { mapState } from 'pinia'
 import { useCardStore } from '../stores/card';
@@ -20,7 +21,7 @@ export default {
         <div class="container">
           <navbar />
         </div>
-
+        <RouterLink to="/result">Go To Result</RouterLink>
       </header>
 
     <div class="album py-5 bg-light">
